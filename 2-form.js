@@ -1,2 +1,2 @@
-import"./assets/modulepreload-polyfill-B5Qt9EMX.js";/* empty css                      */console.log("Form");
+import"./assets/styles-CIL0ecoL.js";const t="feedback-form-state",a=document.querySelector(".feedback-form");console.log(a);a.addEventListener("submit",r);function r(e){e.preventDefault(),e.currentTarget.reset(),localStorage.removeItem(t)}const n=document.querySelector("textarea");n.addEventListener("input",c);function c(e){const o=e.target.value;console.dir(e.target),console.log(o),localStorage.setItem(t,o)}function l(){const e=localStorage.getItem(t);e&&(n.value=e)}l();
 //# sourceMappingURL=2-form.js.map
