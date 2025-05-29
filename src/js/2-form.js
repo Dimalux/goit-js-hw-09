@@ -2,11 +2,9 @@
 let formData = { email: "", message: "",}
 
 
-
 const STORAGE_KEY = 'feedback-form-state';
 
 const form = document.querySelector('.feedback-form');
-
 
 
 form.addEventListener('submit', handleSubmit);
