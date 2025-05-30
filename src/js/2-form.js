@@ -1,30 +1,27 @@
-
-let formData = { email: "", message: "",}
-
+let formData = { email: '', message: '' };
 
 const STORAGE_KEY = 'feedback-form-state';
 
 const form = document.querySelector('.feedback-form');
-
 
 form.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
   event.preventDefault();
 
-
-
   // Вимога: "Заповніть будь ласка всі поля"
-    if (!formData.email || !formData.message) {
+  if (!formData.email || !formData.message) {
     alert('Fill please all fields');
     return;
   }
 
+  // Вимога: "Виведення даних форми у консоль при відправленні для відображення актуальних даних formData під час обробки події submit"
+  console.log(formData);
+
   localStorage.removeItem(STORAGE_KEY);
   form.reset();
-  formData = { email: "", message: "" };
+  formData = { email: '', message: '' };
 }
-
 
 const input = document.querySelector('input');
 const textarea = document.querySelector('textarea');
@@ -32,20 +29,17 @@ const textarea = document.querySelector('textarea');
 form.addEventListener('input', handleInput);
 
 function handleInput(event) {
-
-  // Інформація в якому полі я працюю: input чи в textarea 
+  // Інформація в якому полі я працюю: input чи в textarea
   const nameEl = event.target.name;
   console.log(nameEl);
 
-// отримую значення, яке я ввожу в цьому полі
+  // отримую значення, яке я ввожу в цьому полі
   const valueEl = event.target.value;
-console.log(valueEl);
+  console.log(valueEl);
 
- formData[nameEl] = valueEl.trim();
+  formData[nameEl] = valueEl.trim();
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
-   
 }
-
 
 // Отримуємо збережені значення зі сховища
 
@@ -56,7 +50,7 @@ function textInput() {
   if (objReturnAdd) {
     input.value = objReturnAdd.email || '';
     textarea.value = objReturnAdd.message || '';
-    
+
     // Синхронізація formData з локальним сховищем
     formData = objReturnAdd;
   }
